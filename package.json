@@ -1,0 +1,29 @@
+{
+	"name": "postprocessing-webpack",
+	"private": true,
+	"version": "0.0.0",
+	"description": "A webpack example.",
+	"main": "build/postprocessing-webpack.js",
+	"module": "src/index.js",
+	"license": "Zlib",
+
+	"author": {
+		"name": "Raoul van Rüschen",
+		"email": "vanruesc@outlook.de"
+	},
+
+	"scripts": {
+		"test": "webpack"
+	},
+
+	"dependencies": {
+		"postprocessing": "x.x.x"
+	},
+
+	"devDependencies": {
+		"webpack": "3.x.x",
+		"babel-loader": "7.x.x",
+		"babel-core": "6.x.x",
+		"babel-preset-env": "1.x.x"
+	}
+}
