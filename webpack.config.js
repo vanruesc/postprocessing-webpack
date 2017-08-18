@@ -3,16 +3,21 @@ const webpack = require("webpack");
 
 module.exports = {
 
-	entry: "./src/index.js",
+	entry: {
+		"bundle": "./src/index.js",
+		"bundle.min": "./src/index.js"
+	},
 
 	output: {
-		filename: "postprocessing-webpack.js",
+		filename: "[name].js",
 		path: path.resolve(__dirname, "build")
 	},
 
 	externals: {
 		three: "THREE"
 	},
+
+	devtool: "source-map",
 
 	module: {
 		rules: [
@@ -22,7 +27,7 @@ module.exports = {
 				use: {
 					loader: "babel-loader",
 					options: {
-						presets: ["env"]
+						presets: ["es2015"]
 					}
 				}
 			}
@@ -31,6 +36,8 @@ module.exports = {
 
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin({
+			include: /\.min\.js$/,
+			sourceMap: true,
 			compressor: {
 				warnings: false
 			}
